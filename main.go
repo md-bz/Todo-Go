@@ -28,13 +28,15 @@ func main() {
 		h := new(header)
 		err := c.ReqHeaderParser(h)
 
-		if err != nil || h.Authorization == "" {
+		auth := strings.Split(h.Authorization, " ")
+
+		if err != nil || h.Authorization == "" || auth[0] != "Bearer" {
 			return c.Status(403).JSON(fiber.Map{
 				"error": "Unauthorized",
 			})
 		}
 
-		c.Locals(user, strings.Trim(strings.Split(h.Authorization, " ")[1], " "))
+		c.Locals(user, strings.Trim(auth[1], " "))
 
 		return c.Next()
 	})
