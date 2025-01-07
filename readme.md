@@ -6,8 +6,8 @@ A simple Todo API built with Go, Fiber, and GORM. The app allows users to create
 
 1. **Clone the repository**:
    ```bash
-   git clone <repo_url>
-   cd <repo_name>
+   git clone https://github.com/md-bz/Todo-go
+   cd Todo-go
    ```
 
 2. **Install dependencies**:
